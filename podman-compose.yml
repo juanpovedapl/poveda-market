@@ -1,0 +1,20 @@
+version: "1"
+pods:
+  my-pod:
+    containers:
+      - name: postgres
+        image: postgres:14.3-alpine
+        environment:
+          POSTGRES_DB: povedaMarket
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: root
+        ports:
+          - "5432:5432"
+
+      - name: pgadmin
+        image: dpage/pgadmin4
+        environment:
+          PGADMIN_DEFAULT_EMAIL: "adminMarket@admin.com"
+          PGADMIN_DEFAULT_PASSWORD: "admin"
+        ports:
+          - "8080:80"

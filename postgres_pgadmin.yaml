@@ -1,0 +1,51 @@
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+#
+# Created with podman-4.4.1
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2023-08-24T02:30:38Z"
+  labels:
+    app: postgrespgadmin
+  name: postgres_pgadmin
+spec:
+  containers:
+  - args:
+    - postgres
+    env:
+    - name: POSTGRES_DB
+      value: povedaMarket
+    - name: POSTGRES_USER
+      value: root
+    - name: POSTGRES_PASSWORD
+      value: root
+    image: docker.io/library/postgres:14.3-alpine
+    name: agitatedptolemy
+    resources: {}
+    volumeMounts:
+    - mountPath: /var/lib/postgresql/data
+      name: a7913db503e5b998d506c3255cbedc1e0946f8c4785e5e396d458df7eeb74a37-pvc
+  - env:
+    - name: PGADMIN_DEFAULT_PASSWORD
+      value: admin
+    - name: PGADMIN_DEFAULT_EMAIL
+      value: ad@min.com
+    image: docker.io/dpage/pgadmin4:latest
+    name: eloquentantonelli
+    resources: {}
+    securityContext: {}
+    volumeMounts:
+    - mountPath: /var/lib/pgadmin
+      name: 13884bebc67a60f0865c111cc1307b6588d7f58ee52c5579157beb5284008571-pvc
+  hostname: postgres_pgadmin
+  restartPolicy: Never
+  volumes:
+  - name: a7913db503e5b998d506c3255cbedc1e0946f8c4785e5e396d458df7eeb74a37-pvc
+    persistentVolumeClaim:
+      claimName: a7913db503e5b998d506c3255cbedc1e0946f8c4785e5e396d458df7eeb74a37
+  - name: 13884bebc67a60f0865c111cc1307b6588d7f58ee52c5579157beb5284008571-pvc
+    persistentVolumeClaim:
+      claimName: 13884bebc67a60f0865c111cc1307b6588d7f58ee52c5579157beb5284008571
+status: {}
+

@@ -7,9 +7,8 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - DATABASE_HOST=127.0.0.1
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=povedaMarket
     volumes:
       - marketData:/var/lib/postgresql/data
@@ -19,8 +18,12 @@ services:
       PGADMIN_DEFAULT_EMAIL: "adminMarket@admin.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - postgres
 volumes:
   marketData:
+
+#pn pod create --name povedaMarketPosgre -p 127.0.0.1:5432:5432 -p 127.0.0.1:8080:80
+#podman run -d --pod povedaMarketPosgre -e POSTGRES_DB=povedaMarket -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root postgres:14.3-alpine
+#podman run -d --pod povedaMarketPosgre -e PGADMIN_DEFAULT_EMAIL="ad@min.com" -e PGADMIN_DEFAULT_PASSWORD="admin"  dpage/pgadmin4

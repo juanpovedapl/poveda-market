@@ -1,0 +1,44 @@
+{
+ "name": "postgres_pgadmin-clone",
+ "labels": {
+  "io.buildah.version": "1.29.0"
+ },
+ "infra_image": "c6f0f184c866147790024251d2048b178d7d0aa216dd1ee9fedf75013dc640cf",
+ "pidns": {
+  "nsmode": "default"
+ },
+ "userns": {
+  "nsmode": "default"
+ },
+ "utsns": {
+  "nsmode": "private"
+ },
+ "netns": {
+  "nsmode": "slirp4netns"
+ },
+ "Networks": null,
+ "resource_limits": {
+  "memory": {
+   "swappiness": 0
+  },
+  "pids": {
+   "limit": 2048
+  }
+ },
+ "shm_size": 65536000,
+ "idmappings": {
+  "HostUIDMapping": true,
+  "HostGIDMapping": true,
+  "UIDMap": null,
+  "GIDMap": null,
+  "AutoUserNs": false,
+  "AutoUserNsOpts": {
+   "Size": 0,
+   "InitialSize": 0,
+   "PasswdFile": "",
+   "GroupFile": "",
+   "AdditionalUIDMappings": null,
+   "AdditionalGIDMappings": null
+  }
+ }
+}
